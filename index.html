@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор случайного IP-адреса</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Генератор случайного IP-адреса</h1>
+        <button onclick="generateIP()">Сгенерировать IP</button>
+        <p id="ipAddress"></p>
+    </div>
+
+    <script>
+        function generateIP() {
+            const ip = generateRandomIP();
+            document.getElementById('ipAddress').textContent = `IP: ${ip}`;
+        }
+
+        function generateRandomIP() {
+            const part1 = Math.floor(Math.random() * 256);
+            const part2 = Math.floor(Math.random() * 256);
+            const part3 = Math.floor(Math.random() * 256);
+            const part4 = Math.floor(Math.random() * 256);
+            return `${part1}.${part2}.${part3}.${part4}`;
+        }
+    </script>
+</body>
+</html>
